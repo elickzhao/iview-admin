@@ -1,26 +1,10 @@
 <template>
     <div class="index">
         <div id="particles-js"></div>
-        <!--<Button type="ghost" @click="handleStart">Start iView</Button>-->
-        <!--<div id="canvas" style="width:100vw;min-height: 100vh"></div>-->
         <div id="text">
             <h1>Everything Connects</h1>
             <Button type="ghost" @click="handleStart">Start iView</Button>
-        </div>
-    
-        <!--<Row type="flex" justify="center" align="middle">
-                                                                                                    <Col span="24">
-                                                                                                    <h1>
-                                                                                                        <img src="https://raw.githubusercontent.com/iview/iview/master/assets/logo.png">
-                                                                                                    </h1>
-                                                                                                    <h2>
-                                                                                                        <p>Welcome to your iView app!</p>
-                                                                                                        
-                                                                                                            <Button type="ghost" @click="handleStart">Start iView</Button>
-                                                                                                       
-                                                                                                    </h2>
-                                                                                                    </Col>
-                                                                                                </Row>-->
+        </div>   
     </div>
 </template>
 
