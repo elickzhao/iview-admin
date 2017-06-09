@@ -1,39 +1,8 @@
-<style scoped>
-.index {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-}
-
-.index h1 {
-    height: 150px;
-}
-
-.index h1 img {
-    height: 100%;
-}
-
-.index h2 {
-    color: #666;
-    margin-bottom: 200px;
-}
-
-.index h2 p {
-    margin: 0 0 50px;
-}
-
-.index .ivu-row-flex {
-    height: 100%;
-}
-</style>
 <template>
     <div class="index">
         <div id="particles-js"></div>
         <!--<Button type="ghost" @click="handleStart">Start iView</Button>-->
-        <div id="canvas" style="width:100vw;min-height: 100vh"></div>
+        <!--<div id="canvas" style="width:100vw;min-height: 100vh"></div>-->
         <div id="text">
             <h1>Everything Connects</h1>
             <Button type="ghost" @click="handleStart">Start iView</Button>
@@ -56,42 +25,20 @@
 </template>
 
 <script>
-//import particlesJS from 'particles.js';
+
 import JParticles from 'jparticles';
 import Vue from 'vue';
 
 //因为这是老插件 所以没有遵循新规则 所以用npm安装也是无法使用的, 必须借助 exports-loader 这个插件来加载才可以
 var particlesJS = require('exports-loader?window.particlesJS!../libs/particles.js');
 
-// particlesJS.load('particles-js', 'assets/particles.json', function () {
-//     console.log('callback - particles.js config loaded');
-// });
+//这个目前来看还是最优方案
+particlesJS.load('particles-js', 'assets/particles1.json', function () {
+    console.log('callback - particles.js config loaded');
+});
 
-
-
-var options = {
-    color: '#FFF', //['#2d8cf0', '#19be6b', '#ff9900', '#ed3f14'],
-    num: 100,
-    proximity:100,  //连线的最大距离
-    range: 1300,    //连线范围
-    linewidth: 1,
-    maxSpeed: 1,
-    maxR: 5,
-    lineShape:'cube',
-}
-
-//这个页面不刷新的话就不会出现 和下边 beforeRouteEnter 类似 呵呵 又发现个区别啊  document.ready 就不可以 只能用 window.onload
-window.onload = function(){
-    new JParticles.particle('#canvas', options);
-}
 
 export default {
-    // beforeRouteEnter(to, from, next) {
-    //     next(vm => {
-
-    //         vm.handleStart()
-    //     });
-    // },
     methods: {
         handleStart() {
             var options = {
