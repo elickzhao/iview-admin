@@ -12,7 +12,7 @@ fs.open('./src/config/env.js', 'w', function(err, fd) {
 
 module.exports = merge(webpackBaseConfig, {
     output: {
-        publicPath: '/dist/',
+        publicPath: '',
         filename: '[name].[hash].js',
         chunkFilename: '[name].[hash].chunk.js'
     },
@@ -35,8 +35,8 @@ module.exports = merge(webpackBaseConfig, {
                 warnings: false
             }
         }),
-        new HtmlWebpackPlugin({
-            filename: '../index_prod.html',
+        new HtmlWebpackPlugin({ //会报错么???
+            filename: 'index_prod.html',
             template: './src/template/index.ejs',
             inject: false
         })

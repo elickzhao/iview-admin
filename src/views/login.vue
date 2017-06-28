@@ -3,7 +3,10 @@
         <div id="particles-js"></div>
         <div id="text">
             <h1>Everything Connects</h1>
-            <Button type="ghost" @click="handleStart">Start iView</Button>
+            <!--<Button type="ghost" @click="handleStart">Start iView</Button>
+             <router-link to="/main">
+            <Button type="ghost" @click="handleStart">main</Button>
+             </router-link>-->
         </div>   
     </div>
 </template>
@@ -16,7 +19,7 @@ import Vue from 'vue';
 //因为这是老插件 所以没有遵循新规则 所以用npm安装也是无法使用的, 必须借助 exports-loader 这个插件来加载才可以
 var particlesJS = require('exports-loader?window.particlesJS!../libs/particles.js');
 
-//这个目前来看还是最优方案
+//这个目前来看还是最优方案  //加载配置文件没有什么好的方法呢 不能把他生成到build目录里
 particlesJS.load('particles-js', 'assets/particles1.json', function () {
     console.log('callback - particles.js config loaded');
 });
@@ -44,7 +47,7 @@ export default {
 .index {
     background: #222;
     margin: 0rem;
-    min-height: 100vh;
+    min-height: 100vh;   /*必须是最小高度  如果是高度的话 下面会有留白 可能是因为和其他高度相对有关*/
     font-family: Futura, sans-serif;
     z-index: -2;
 }

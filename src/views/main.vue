@@ -10,7 +10,7 @@
         padding: 10px 15px 0;
     }
     .layout-content{
-        min-height: 760px;
+        min-height: 500px;  /*  内容区域是固定高度 可能有点问题 */
         margin: 15px;
         overflow: hidden;
         background: #fff;
@@ -26,6 +26,7 @@
     }
     .layout-menu-left{
         background: #464c5b;
+        min-height: 100vh;
     }
     .layout-header{
         height: 60px;
