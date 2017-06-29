@@ -48,6 +48,10 @@ module.exports = {
             {
                 test: /\.(html|tpl)$/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
             }
         ]
     },
