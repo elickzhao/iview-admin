@@ -40,10 +40,11 @@ module.exports = merge(webpackBaseConfig, {
             filename: 'index_prod.html',
             template: './src/template/index.ejs',
             inject: false
-        }),
-        new CopyWebpackPlugin([{
-            from:'./src/assets',
-            to:'assets'
-        }])
+        })
+        //现在已经不需要在拷贝这个配置文件了
+        // new CopyWebpackPlugin([{
+        //     from:'./src/assets',
+        //     to:'assets'
+        // }])
     ]
 });
