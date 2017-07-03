@@ -1,13 +1,9 @@
 <template>
     <div class="index">
         <div id="particles-js"></div>
-        <div id="text">
-            <Row>
-                <Col class="login-container">
-                <lFrom></lFrom>
-                </Col>
-            </Row>
-        </div>
+        <transition name="bounceIn">
+            <lFrom></lFrom>
+        </transition>
     </div>
 </template>
 
@@ -42,8 +38,8 @@ export default {
             new JParticles.particle('#canvas', options);
         }
     },
-    components:{
-        lFrom:(resolve) => require(['./login-form.vue'], resolve)
+    components: {
+        lFrom: (resolve) => require(['./login-form.vue'], resolve)
     }
 };
 </script>
@@ -58,8 +54,7 @@ export default {
     z-index: -2;
 }
 
-#canvas,
-#text {
+#canvas {
     position: absolute;
     display: block;
     top: 0;
@@ -67,28 +62,56 @@ export default {
     z-index: -1;
 }
 
-#text {
-    min-height: 100vh;
-    width: 100vw;
-    z-index: 1;
-    /*color: #fff;*/
-    text-transform: uppercase;
-    /*font-size: 5vmin;*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+
+@keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
 }
 
-.login-container{
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    background-clip: padding-box;
-    margin: 180px auto;
-    width: 450px;                  /*登录form的宽度需要修改这里 */
-    padding: 35px 35px 15px;
-    background: #fff;
-    border: 1px solid #eaeaea;
-    box-shadow: 0 0 25px #cac6c6;
+
+/**
+这次用的是css的动画 https://penjs.net/animate/
+下次用 Animate.css 那个用起来好像比这个简单
+*/
+
+.bounceIn-enter-active {
+    animation: bounceIn .5s;
+}
+
+.bounceIn-leave-active {
+    animation: bounceIn .5s reverse; /*reverse 不知道用处何在*/
 }
 </style>
