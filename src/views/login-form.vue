@@ -13,7 +13,7 @@
             <Icon type="locked" size="20" color='#80848f' slot="prepend"></Icon>
             </Input>
         </Form-item>
-        <Form-item prop="interest">
+        <Form-item prop="interest" style="text-align:left">
             <Checkbox>记住密码</Checkbox>
         </Form-item>
         <Form-item>
