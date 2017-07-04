@@ -7,17 +7,17 @@
                     <h1>系统登录</h1>
                 </Form-item>
                 <Form-item prop="user">
-                    <Input type="text" placeholder="帐号" size="large">
+                    <Input type="text" v-model="formInline.user" placeholder="帐号" size="large">
                     <Icon type="person" size="20" color='#80848f' slot="prepend"></Icon>
                     </Input>
                 </Form-item>
                 <Form-item prop="password">
-                    <Input type="password" placeholder="密码" size="large">
+                    <Input type="password" v-model="formInline.password" placeholder="密码" size="large">
                     <Icon type="locked" size="20" color='#80848f' slot="prepend"></Icon>
                     </Input>
                 </Form-item>
                 <Form-item prop="interest" style="text-align:left">
-                    <Checkbox>记住密码</Checkbox>
+                    <Checkbox size="large" >记住密码</Checkbox>
                 </Form-item>
                 <Form-item>
                     <Button type="primary" @click="handleSubmit('formInline')" long>登录</Button>
@@ -77,15 +77,15 @@ export default {
 }
 
 #text {
-    min-height: 100vh;
+    min-height: 80vh;   /* 为了把form往上移动点,这里改了高度原来为100*/
     width: 100vw;
     z-index: 1;
     /*color: #fff;*/
     text-transform: uppercase;
     /*font-size: 5vmin;*/
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* align-items 属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
+    justify-content: center;   /*justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 使用 align-content 属性对齐交叉轴上的各项（垂直）。 */
     text-align: center;
 }
 
@@ -94,7 +94,7 @@ export default {
     -moz-border-radius: 5px;
     background-clip: padding-box;
     /*margin: 180px auto;*/
-    width: 450px;
+    width: 400px;
     /*登录form的宽度需要修改这里 */
     padding: 35px 35px 15px;
     background: #fff;

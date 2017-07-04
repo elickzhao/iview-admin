@@ -2,7 +2,7 @@
     <div class="index">
         <div id="particles-js"></div>
         <transition name="bounceIn">
-            <lFrom></lFrom>
+            <login-form></login-form>
         </transition>
     </div>
 </template>
@@ -39,7 +39,7 @@ export default {
         }
     },
     components: {
-        lFrom: (resolve) => require(['./login-form.vue'], resolve)
+        'login-form': (resolve) => require(['./login-form.vue'], resolve)
     }
 };
 </script>
@@ -102,6 +102,8 @@ export default {
 }
 
 
+
+
 /**
 这次用的是css的动画 https://penjs.net/animate/
 下次用 Animate.css 那个用起来好像比这个简单
@@ -112,6 +114,7 @@ export default {
 }
 
 .bounceIn-leave-active {
-    animation: bounceIn .5s reverse; /*reverse 不知道用处何在*/
+    animation: bounceIn .5s reverse;
+    /*reverse 不知道用处何在*/
 }
 </style>
