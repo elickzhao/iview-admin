@@ -45,21 +45,19 @@ export default {
 </script>
 
 <style>
-.index {
-    background: #f8f8f9;
-    margin: 0rem;
-    min-height: 100vh;
-    /*必须是最小高度  如果是高度的话 下面会有留白 可能是因为和其他高度相对有关*/
-    font-family: Futura, sans-serif;
-    z-index: -2;
-}
+/*
+以前加的样式都和particlesJS无关 都是JParticles的 所以现在基本都去掉了
+*/
 
-#canvas {
+/*
+这句很关键 如果不设置的话大小总会出现偏移的 不过按照官方的说应该是 #particles-js 也就是容器id 可不知道为啥是canvas类名
+还有个问题就是我这个文件不知道从哪里来的,好像跟从官方复制的不一样,把Github上的复制到文件里就报错了
+*/
+.particles-js-canvas-el {
     position: absolute;
     display: block;
     top: 0;
     left: 0;
-    z-index: -1;
 }
 
 
@@ -100,6 +98,8 @@ export default {
         transform: scale3d(1, 1, 1);
     }
 }
+
+
 
 
 

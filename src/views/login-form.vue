@@ -17,7 +17,7 @@
                     </Input>
                 </Form-item>
                 <Form-item prop="interest" style="text-align:left">
-                    <Checkbox size="large" >记住密码</Checkbox>
+                    <Checkbox size="large">记住密码</Checkbox>
                 </Form-item>
                 <Form-item>
                     <Button type="primary" @click="handleSubmit('formInline')" long>登录</Button>
@@ -28,6 +28,9 @@
     </div>
 </template>
 <script>
+
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -50,6 +53,15 @@ export default {
         handleSubmit(name) {
             this.$refs[name].validate((valid) => {
                 if (valid) {
+
+                    axios.post('http://jsonplaceholder.typicode.com/posts', {
+                            title: 'foo',
+                            body: 'bar',
+                            userId: 1
+                    }).then(function (data) {
+                        console.log(data);
+                    });
+
                     this.$Message.success('提交成功!');
                 } else {
                     this.$Message.error('表单验证失败!');
@@ -68,6 +80,7 @@ export default {
     font-family: Futura, sans-serif;
     z-index: -2;
 }
+
 #text {
     position: absolute;
     display: block;
@@ -77,15 +90,18 @@ export default {
 }
 
 #text {
-    min-height: 80vh;   /* 为了把form往上移动点,这里改了高度原来为100*/
+    min-height: 80vh;
+    /* 为了把form往上移动点,这里改了高度原来为100*/
     width: 100vw;
     z-index: 1;
     /*color: #fff;*/
     text-transform: uppercase;
     /*font-size: 5vmin;*/
     display: flex;
-    align-items: center; /* align-items 属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
-    justify-content: center;   /*justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 使用 align-content 属性对齐交叉轴上的各项（垂直）。 */
+    align-items: center;
+    /* align-items 属性定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
+    justify-content: center;
+    /*justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 使用 align-content 属性对齐交叉轴上的各项（垂直）。 */
     text-align: center;
 }
 
