@@ -25,7 +25,7 @@ const router = new VueRouter(RouterConfig);
 
 router.beforeEach((to, from, next) => {
     iView.LoadingBar.start();
-    Util.title(to.meta.title);
+    Util.title(to.meta.title);  //title后面那个Home在这里啊
     next();
 });
 

@@ -5,10 +5,11 @@ let util = {
 
 };
 util.title = function(title) {
-    title = title ? title + ' - Home' : 'iView project';
+    title = title ? ' 易购 -' + title : 'iView project';
     window.document.title = title;
 };
 
+//这个还不知道怎么用
 const ajaxUrl = env === 'development' ?
     'http://127.0.0.1:8888' :
     env === 'production' ?
