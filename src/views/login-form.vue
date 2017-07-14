@@ -53,26 +53,28 @@ export default {
         handleSubmit(name) {
             this.$refs[name].validate((valid) => {
                 if (valid) {
-                    let self = this //必须转换一下,要不下面的 $Message 会找不到
-                    axios.get('http://localhost:3000/users', {  //只能用get 是请求 post是创建
-                        params: {
-                            user: this.formInline.user,
-                            password: this.formInline.password
-                        }
-                    })
-                        .then(function (res) {  //还有这里蛮有趣的,用浏览器返回的是json格式,用这个请求回来的就是对象模式了
-                            if(res.data != ""){
-                                self.$Message.success('登录成功!');
-                                self.$router.push({path:'/main'})
-                            }else{
-                                self.$Message.error('用户活密码错误!');
-                            }
-                            
-                        })
-                        .catch(function (err) {//这个捕捉错误 空也不算
-                            self.$Notice.error('用户活密码错误!');
-                        });
+                    // let self = this //必须转换一下,要不下面的 $Message 会找不到
+                    // axios.get('http://localhost:3000/users', {  //只能用get 是请求 post是创建
+                    //     params: {
+                    //         user: this.formInline.user,
+                    //         password: this.formInline.password
+                    //     }
+                    // })
+                    //     .then(function (res) {  //还有这里蛮有趣的,用浏览器返回的是json格式,用这个请求回来的就是对象模式了
+                    //         if (res.data != "") {
+                    //             self.$Message.success('登录成功!');
+                    //             self.$router.push({ path: '/main' })
+                    //         } else {
+                    //             self.$Message.error('用户活密码错误!');
+                    //         }
 
+                    //     })
+                    //     .catch(function (err) {//这个捕捉错误 空也不算
+                    //         self.$Notice.error('用户活密码错误!');
+                    //     });
+                    // 上面那个是api方式,但我现在想做一个本地独立运用的,所以先建立页面吧.等以后分成两个版本用
+                    this.$Message.success('登录成功!');
+                    this.$router.push({ path: '/main' })
                 } else {
                     this.$Message.error('表单验证失败!');
                 }
