@@ -33,6 +33,8 @@ import axios from 'axios';
 import Mock from 'mockjs';
 import MockAdapter from 'axios-mock-adapter';   //这个插件不能自动模拟数据,只能自己手写而已,可以利用上面插件模拟 但最好两个合起来
 
+//import Util from '../libs/util';
+
 (function () {
     var template = {
         'people|1-4': [{
@@ -77,7 +79,8 @@ export default {
             this.$refs[name].validate((valid) => {
                 if (valid) {
                     // let self = this //必须转换一下,要不下面的 $Message 会找不到
-                    // axios.get('http://localhost:3000/users', {  //只能用get 是请求 post是创建
+                    // //现在用的是实例请求,已经写好了基本url所以不用写前面那一大段了
+                    // Util.ajax.get('users', {  //只能用get 是请求 post是创建
                     //     params: {
                     //         user: this.formInline.user,
                     //         password: this.formInline.password

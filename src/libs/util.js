@@ -9,9 +9,9 @@ util.title = function(title) {
     window.document.title = title;
 };
 
-//这个还不知道怎么用
+//设置基本请求域名 不用写那么长 下面创建了个axios实例
 const ajaxUrl = env === 'development' ?
-    'http://127.0.0.1:8888' :
+    'http://127.0.0.1:3000' :
     env === 'production' ?
     'https://www.url.com' :
     'https://debug.url.com';
