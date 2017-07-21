@@ -31,7 +31,7 @@
 }
 
 .layout-menu-left {
-    background: #464c5b;
+    background: #E5E9F2;
     min-height: 100vh;
 }
 
@@ -42,11 +42,13 @@
 }
 
 .layout-logo-left {
-    width: 90%;
-    height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
-    margin: 15px auto;
+    /* width: 90%; */
+    height: 60px;
+    background: #D3DCE6;
+    text-align: justify;
+    font-size: 20px;
+    /* border-radius: 3px; */
+    /* margin: 15px auto; */
 }
 
 .layout-ceiling-main a {
@@ -61,17 +63,16 @@
     transition: width .2s ease-in-out;
 }
 
-.ivu-menu-dark {
-    background: #464c5b;
-    /** 这不知道是升级后颜色变了 还是怎么回事 这个them的颜色和底色不同了 使得下面的例子特别难看 先在这里改一下吧 */
+.ivu-menu-light {
+    background: #E5E9F2;
 }
 </style>
 <template>
     <div class="layout" :class="{'layout-hide-text': spanLeft < 4}">
         <Row type="flex">
             <i-col :span="spanLeft" class="layout-menu-left">
-                <Menu active-name="1" theme="dark" width="auto">
-                    <div class="layout-logo-left"></div>
+                <Menu active-name="1" theme="light" width="auto">
+                    <div class="layout-logo-left">AdminLTE</div>
                     <Menu-item name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
                         <span class="layout-text">选项 1</span>
@@ -118,7 +119,7 @@ export default {
             spanRight: 20
         }
     },
-    route:{
+    route: {
         data: function () {
             document.title = "页面标题"
         }
