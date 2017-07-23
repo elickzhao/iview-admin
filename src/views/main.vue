@@ -44,12 +44,19 @@
 .layout-logo-left {
     /* width: 90%; */
     height: 60px;
+    line-height: 60px;
     background: #D3DCE6;
-    text-align: justify;
+    text-align: center;
     font-size: 20px;
+    /* padding-top: 15px; */
     /* border-radius: 3px; */
     /* margin: 15px auto; */
 }
+
+
+/* .logo-lg {
+    vertical-align: middle;
+} */
 
 .layout-ceiling-main a {
     color: #9ba7b5;
@@ -72,7 +79,10 @@
         <Row type="flex">
             <i-col :span="spanLeft" class="layout-menu-left">
                 <Menu active-name="1" theme="light" width="auto">
-                    <div class="layout-logo-left">AdminLTE</div>
+                    <div class="layout-logo-left">
+                        <span class="logo-lg">
+                            <b>Admin</b>LTE </span>
+                    </div>
                     <Menu-item name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
                         <span class="layout-text">选项 1</span>
