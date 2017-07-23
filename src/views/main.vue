@@ -42,21 +42,13 @@
 }
 
 .layout-logo-left {
-    /* width: 90%; */
     height: 60px;
     line-height: 60px;
     background: #D3DCE6;
     text-align: center;
     font-size: 20px;
-    /* padding-top: 15px; */
-    /* border-radius: 3px; */
-    /* margin: 15px auto; */
 }
 
-
-/* .logo-lg {
-    vertical-align: middle;
-} */
 
 .layout-ceiling-main a {
     color: #9ba7b5;
@@ -73,6 +65,12 @@
 .ivu-menu-light {
     background: #E5E9F2;
 }
+
+.lwidth {
+    min-width: 150px;
+    overflow: hidden;
+}
+
 </style>
 <template>
     <div class="layout" :class="{'layout-hide-text': spanLeft < 4}">
@@ -80,18 +78,23 @@
             <i-col :span="spanLeft" class="layout-menu-left">
                 <Menu active-name="1" theme="light" width="auto">
                     <div class="layout-logo-left">
-                        <span class="logo-lg">
-                            <b>Admin</b>LTE </span>
+                        <span class="logo-lg" v-show="spanLeft == 4">
+                            <b>Admin</b>LTE
+                        </span>
+                        <span class="logo-mini" v-show="spanLeft == 1">
+                            <b>LTE</b>
+                        </span>
+    
                     </div>
-                    <Menu-item name="1">
+                    <Menu-item :class="{'lwidth': spanLeft === 4}" name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
                         <span class="layout-text">选项 1</span>
                     </Menu-item>
-                    <Menu-item name="2">
+                    <Menu-item :class="{'lwidth': spanLeft === 4}" name="2">
                         <Icon type="ios-keypad" :size="iconSize"></Icon>
                         <span class="layout-text">选项 2</span>
                     </Menu-item>
-                    <Menu-item name="3">
+                    <Menu-item :class="{'lwidth': spanLeft === 4}" name="3">
                         <Icon type="ios-analytics" :size="iconSize"></Icon>
                         <span class="layout-text">选项 3</span>
                     </Menu-item>
@@ -129,11 +132,6 @@ export default {
             spanRight: 20
         }
     },
-    route: {
-        data: function () {
-            document.title = "页面标题"
-        }
-    },
     computed: {
         iconSize() {
             return this.spanLeft === 4 ? 20 : 24;
@@ -142,8 +140,8 @@ export default {
     methods: {
         toggleClick() {
             if (this.spanLeft === 4) {
-                this.spanLeft = 2;
-                this.spanRight = 22;
+                this.spanLeft = 1;
+                this.spanRight = 23;
             } else {
                 this.spanLeft = 4;
                 this.spanRight = 20;
