@@ -74,6 +74,25 @@ export default {
             }
         }
     },
+    mounted: function () {
+        // 用 $nextTick 也不行 应该是这里可以用this 但是 document.onkeyup 里面不行
+        // this.$nextTick(function () {
+        //     // 代码保证 this.$el 在 document 中
+        //     document.onkeyup = function (ev) {
+        //         if (ev.keyCode == 13) {
+        //             this.handleSubmit('formInline');
+        //         }
+        //     }
+        // })
+
+        let self = this;
+        document.onkeyup = function (ev) {
+            if (ev.keyCode == 13) {
+                self.handleSubmit('formInline');
+            }
+        }
+
+    },
     methods: {
         handleSubmit(name) {
             this.$refs[name].validate((valid) => {

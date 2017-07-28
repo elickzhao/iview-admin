@@ -67,7 +67,7 @@
 }
 
 .lwidth {
-    min-width: 150px;
+     min-width: 150px; 
     overflow: hidden;
 }
 
@@ -84,7 +84,6 @@
                         <span class="logo-mini" v-show="spanLeft == 1">
                             <b>LTE</b>
                         </span>
-    
                     </div>
                     <Menu-item :class="{'lwidth': spanLeft === 4}" name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
