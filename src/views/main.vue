@@ -67,10 +67,10 @@
 }
 
 .lwidth {
-     min-width: 150px; 
+    min-width: 150px;
     overflow: hidden;
+    z-index: -5;
 }
-
 </style>
 <template>
     <div class="layout" :class="{'layout-hide-text': spanLeft < 4}">
@@ -87,7 +87,7 @@
                     </div>
                     <Menu-item :class="{'lwidth': spanLeft === 4}" name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
-                        <span class="layout-text">选项 1</span>
+                        <span class="layout-text">选项 1选项 1选项 1选项 1</span>
                     </Menu-item>
                     <Menu-item :class="{'lwidth': spanLeft === 4}" name="2">
                         <Icon type="ios-keypad" :size="iconSize"></Icon>

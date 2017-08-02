@@ -6,7 +6,7 @@ import Vuex from 'vuex';
 import Util from './libs/util';
 import App from './app.vue';
 //import 'iview/dist/styles/iview.css';
-import '../my-theme/index.less';
+import '../my-theme/index.less';    //这是修改主题 但是只能修改一些颜色 并不是所有颜色都能改的 以后慢慢研究
 
 
 Vue.use(VueRouter);
