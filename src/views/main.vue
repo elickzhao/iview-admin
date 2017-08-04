@@ -59,17 +59,18 @@
 }
 
 .ivu-col {
-    transition: width .2s ease-in-out;
+    /* 修改了速度 和 模式 现在看来没有以前的效果, 不过观感好多  */
+    transition: width .08s ease-out;   
+    /*
+    property：执行过渡的属性  all 或者  width
+    duration：执行过渡的持续时间  可以是 s 或是 ms
+    timing-function：执行过渡的速率模式  ease-in-out
+    delay：延时多久执行
+      */
 }
 
 .ivu-menu-light {
     background: #E5E9F2;
-}
-
-.lwidth {
-    min-width: 150px;
-    overflow: hidden;
-    z-index: -5;
 }
 </style>
 <template>
@@ -85,15 +86,15 @@
                             <b>LTE</b>
                         </span>
                     </div>
-                    <Menu-item :class="{'lwidth': spanLeft === 4}" name="1">
+                    <Menu-item name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
-                        <span class="layout-text">选项 1选项 1选项 1选项 1</span>
+                        <span class="layout-text" v-show="spanLeft == 4">选项 1选项</span>
                     </Menu-item>
-                    <Menu-item :class="{'lwidth': spanLeft === 4}" name="2">
+                    <Menu-item name="2">
                         <Icon type="ios-keypad" :size="iconSize"></Icon>
                         <span class="layout-text">选项 2</span>
                     </Menu-item>
-                    <Menu-item :class="{'lwidth': spanLeft === 4}" name="3">
+                    <Menu-item name="3">
                         <Icon type="ios-analytics" :size="iconSize"></Icon>
                         <span class="layout-text">选项 3</span>
                     </Menu-item>
