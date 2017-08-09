@@ -88,15 +88,15 @@
                     </div>
                     <Menu-item name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
-                        <span class="layout-text" v-show="spanLeft == 4">选项 1选项</span>
+                         <router-link to="/sub1"><span class="layout-text" v-show="spanLeft == 4">选项 1选项</span></router-link>
                     </Menu-item>
                     <Menu-item name="2">
                         <Icon type="ios-keypad" :size="iconSize"></Icon>
-                        <span class="layout-text">选项 2</span>
+                        <router-link to="/sub2"><span class="layout-text">选项 2</span></router-link>
                     </Menu-item>
                     <Menu-item name="3">
                         <Icon type="ios-analytics" :size="iconSize"></Icon>
-                        <span class="layout-text">选项 3</span>
+                        <router-link to="/sub3"><span class="layout-text">选项 3</span></router-link>
                     </Menu-item>
                 </Menu>
             </i-col>
@@ -115,7 +115,8 @@
                     </Breadcrumb>
                 </div>
                 <div class="layout-content">
-                    <div class="layout-content-main">内容区域</div>
+                    <!-- <div class="layout-content-main">内容区域</div> -->
+                     <router-view></router-view>
                 </div>
                 <div class="layout-copy">
                     2011-2016 &copy; TalkingData
