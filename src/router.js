@@ -10,17 +10,20 @@ const routers = [{
         title: '后台管理中心' //这个是title标题
     },
     component: (resolve) => require(['./views/main.vue'], resolve),
-    subRoutes: {
-        '/sub1': {
+    children:[
+        {
+            path:'sub1',
             component: (resolve) => require(['./views/sub1.vue'], resolve),
         },
-        '/sub2': {
+        {
+            path:'sub2',
             component: (resolve) => require(['./views/sub2.vue'], resolve),
         },
-        '/sub3': {
+        {
+            path:'sub3',
             component: (resolve) => require(['./views/sub3.vue'], resolve),
-        }
-    }
+        },
+    ]
 
 }];
 export default routers;

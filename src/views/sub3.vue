@@ -1,1 +1,3 @@
-sub3
+<template>
+<p>sub3</p>
+</template>

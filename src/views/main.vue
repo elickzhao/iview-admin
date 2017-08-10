@@ -60,7 +60,7 @@
 
 .ivu-col {
     /* 修改了速度 和 模式 现在看来没有以前的效果, 不过观感好多  */
-    transition: width .08s ease-out;   
+    transition: width .08s ease-out;
     /*
     property：执行过渡的属性  all 或者  width
     duration：执行过渡的持续时间  可以是 s 或是 ms
@@ -88,15 +88,21 @@
                     </div>
                     <Menu-item name="1">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
-                         <router-link to="/sub1"><span class="layout-text" v-show="spanLeft == 4">选项 1选项</span></router-link>
+                        <router-link to="/main/sub1">
+                            <span class="layout-text" v-show="spanLeft == 4">选项 1选项</span>
+                        </router-link>
                     </Menu-item>
                     <Menu-item name="2">
                         <Icon type="ios-keypad" :size="iconSize"></Icon>
-                        <router-link to="/sub2"><span class="layout-text">选项 2</span></router-link>
+                        <router-link to="/main/sub2">
+                            <span class="layout-text">选项 2</span>
+                        </router-link>
                     </Menu-item>
                     <Menu-item name="3">
                         <Icon type="ios-analytics" :size="iconSize"></Icon>
-                        <router-link to="/sub3"><span class="layout-text">选项 3</span></router-link>
+                        <router-link to="/main/sub3">
+                            <span class="layout-text">选项 3</span>
+                        </router-link>
                     </Menu-item>
                 </Menu>
             </i-col>
@@ -115,8 +121,10 @@
                     </Breadcrumb>
                 </div>
                 <div class="layout-content">
-                    <!-- <div class="layout-content-main">内容区域</div> -->
-                     <router-view></router-view>
+                    <div class="layout-content-main">
+                        <router-view></router-view>
+                    </div>
+    
                 </div>
                 <div class="layout-copy">
                     2011-2016 &copy; TalkingData
