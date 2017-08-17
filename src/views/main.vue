@@ -87,19 +87,19 @@
                         </span>
                     </div>
                     <Menu-item name="1">
-                        <router-link to="/main/sub1">
+                        <router-link to="/main/sub1" tag="li">
                             <Icon type="ios-navigate" :size="iconSize"></Icon>
                             <span class="layout-text" v-show="spanLeft == 4">选项 1选项</span>
                         </router-link>
                     </Menu-item>
                     <Menu-item name="2">
-                        <router-link to="/main/sub2">
+                        <router-link to="/main/sub2" tag="li">
                             <Icon type="ios-keypad" :size="iconSize"></Icon>
                             <span class="layout-text">选项 2</span>
                         </router-link>
                     </Menu-item>
                     <Menu-item name="3">
-                        <router-link to="/main/sub3">
+                        <router-link to="/main/sub3" tag="li">
                             <Icon type="ios-analytics" :size="iconSize"></Icon>
                             <span class="layout-text">选项 3</span>
                         </router-link>
