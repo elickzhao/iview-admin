@@ -14,7 +14,7 @@ const routers = [{
         {
             path: '/',  //当一开始进入页面转到子页面,避免空页面
             //redirect: '/main/sub1'    //指定路径
-            redirect:{ name: 'goods' }  //指定命名路径
+            redirect:{ name: 'sub1' }  //指定命名路径
         },
         {
             path: 'sub1',

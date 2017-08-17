@@ -87,7 +87,7 @@
                         </span>
                     </div>
                     <Menu-item name="1">
-                        <router-link to="/main/sub1" exact>
+                        <router-link to="/main/sub1">
                             <Icon type="ios-navigate" :size="iconSize"></Icon>
                             <span class="layout-text" v-show="spanLeft == 4">选项 1选项</span>
                         </router-link>
