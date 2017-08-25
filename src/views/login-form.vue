@@ -33,7 +33,7 @@ import axios from 'axios';
 import Mock from 'mockjs';
 import MockAdapter from 'axios-mock-adapter';   //这个插件不能自动模拟数据,只能自己手写而已,可以利用上面插件模拟 但最好两个合起来
 
-//import Util from '../libs/util';
+import Util from '../libs/util';
 
 (function () {
     var template = {
@@ -119,24 +119,38 @@ export default {
                     //     });
                     // 上面那个是api方式,但我现在想做一个本地独立运用的,所以先建立页面吧.等以后分成两个版本用
                     this.$Message.success('登录成功!');
-                    this.$router.push({ path: '/main' })
+                    //this.$router.push({ path: '/main' })
 
-                    //模拟数据测试
-                    let mock = new MockAdapter(axios);
+                    //本地拦截并模拟数据测试
+                    // let mock = new MockAdapter(axios);
 
-                    var template = {
-                        'people|1-4': [{
-                            'name': '@name',
-                            'age': '@integer(10,80)'
-                        }]
-                    }
-                    let data = Mock.mock(template);
+                    // var template = {
+                    //     'people|1-4': [{
+                    //         'name': '@name',
+                    //         'age': '@integer(10,80)'
+                    //     }]
+                    // }
+                    // let data = Mock.mock(template);
 
-                    mock.onGet("www.h.com").reply(200, data);
-                    axios.get("www.h.com").then(function (res) {
-                        let u = res.data.user;
+                    // mock.onGet("www.h.com").reply(200, data);
+                    // axios.get("www.h.com").then(function (res) {
+                    //     let u = res.data.user;
+                    //     console.log(JSON.stringify(res.data, null, 2));
+                    // });
+
+                    
+                    //请求esay mock ,这个可以模拟各类型数据因为用的是mock.js 但是管理功能上比较欠缺
+                    axios.get("http://www.easy-mock.com/mock/5995ae24059b9c566dc5145f/example/user/list").then((res)=>{
                         console.log(JSON.stringify(res.data, null, 2));
                     });
+
+                    //这个请求的是doclever,这个能管理功能异常强大.但是模拟数据类型比较少.比如现在还不能模拟出多个数组 以至于没法弄列表
+                    //这么写需要配合net.js才能完成短连接请求
+                    Util.ajax.get("/user/").then(
+                        function(res){
+                            console.log(JSON.stringify(res.data, null, 2));
+                        }
+                    );
 
 
                 } else {

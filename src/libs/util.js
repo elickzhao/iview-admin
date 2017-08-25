@@ -11,11 +11,12 @@ util.title = function(title) {
 
 //设置基本请求域名 不用写那么长 下面创建了个axios实例
 const ajaxUrl = env === 'development' ?
-    'http://127.0.0.1:3000' :
+    'http://localhost:36742' :
     env === 'production' ?
     'https://www.url.com' :
     'https://debug.url.com';
 
+    alert(ajaxUrl);
 util.ajax = axios.create({
     baseURL: ajaxUrl,
     timeout: 30000

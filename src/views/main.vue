@@ -87,7 +87,8 @@
                         </span>
                     </div>
                     <Menu-item name="1">
-                        <router-link to="/main/sub1" tag="li">
+                        <!-- 这里必须用 tag='li' 因为menu结构是li 否则的话你只有点到字 才会切换 这样不合理 而且样式也变了 填上这个就好了 监听li点击 样式也好了 -->
+                         <router-link to="/main/sub1" tag="li">  
                             <Icon type="ios-navigate" :size="iconSize"></Icon>
                             <span class="layout-text" v-show="spanLeft == 4">选项 1选项</span>
                         </router-link>
